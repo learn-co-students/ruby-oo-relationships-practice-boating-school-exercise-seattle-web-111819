@@ -12,16 +12,17 @@ class Instructor
         @@all
     end
 
-    def find_student_test(student, test_name)
-        BoatingTest.all.find {|bt| bt.student = student && bt.test_name == test_name}
+    def grade_student(student, test_name, new_grade)
+        match = BoatingTest.all.find {|bt| bt.student = student && bt.test_name == test_name}
+        match ? match.grade = new_grade : BoatingTest.new(self, student, test_name, new_grade)
     end
 
     def pass_student(student, test_name)
-        self.find_student_test(student, test_name).grade = "passing"
+        grade_student(student, test_name, "passing")
     end
 
-    def fail(student, test_name)
-        self.find_student_test(student, test_name).grade = "failing"
+    def fail_student(student, test_name)
+        grade_student(student, test_name, "failing")
     end
 
 end
