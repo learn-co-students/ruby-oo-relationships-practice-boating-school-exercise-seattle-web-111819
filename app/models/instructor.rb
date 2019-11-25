@@ -13,7 +13,7 @@ class Instructor
     end
 
     def grade_student(student, test_name, new_grade)
-        match = BoatingTest.all.find {|bt| bt.student = student && bt.test_name == test_name}
+        match = BoatingTest.all.find {|bt| bt.student == student && bt.test_name == test_name}
         match ? match.grade = new_grade : BoatingTest.new(self, student, test_name, new_grade)
     end
 

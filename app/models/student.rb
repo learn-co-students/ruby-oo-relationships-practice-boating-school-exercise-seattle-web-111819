@@ -21,11 +21,11 @@ class Student
     end
 
     def boating_tests
-        BoatingTest.select {|bt| bt.student == self}
+        BoatingTest.all.select {|bt| bt.student == self}
     end
 
     def grade_percentage
-        self.boating_tests.select {|bt| bt.grade == "passing"}.count / self.boating_tests.count
+        self.boating_tests.select {|bt| bt.grade == "passing"}.count.to_f / self.boating_tests.count * 100
     end
 
 end
