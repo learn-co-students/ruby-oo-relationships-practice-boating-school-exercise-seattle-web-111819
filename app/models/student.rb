@@ -23,7 +23,8 @@ class Student
         #return percentage of all tests passed
         passed = BoatingTest.all.select {|bts| bts.test_status == "passed"}
         tests = BoatingTest.all.select {|bts| bts.name}
-        (passed.length).to_f/(name.length).to_f
+        test = (passed.length).to_f/(name.length).to_f
+        test*100
         binding.pry
     end
 
