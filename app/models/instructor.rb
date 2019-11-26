@@ -18,11 +18,11 @@ class Instructor
     end
 
     def pass_student(student, test_name)
-        grade_student(student, test_name, "passing")
+        grade_student(student, test_name, "passed")
     end
 
     def fail_student(student, test_name)
-        grade_student(student, test_name, "failing")
+        grade_student(student, test_name, "failed")
     end
 
 end
